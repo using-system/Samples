@@ -9,13 +9,13 @@ namespace Task.Api.Controllers.V1
     /// <summary>Task Controller</summary>
     public class TaskController : Controller
     {
-        private readonly IMediator mediatior;
+        private readonly IMediator mediator;
 
         /// <summary>Initializes a new instance of the <see cref="TaskController"/> class.</summary>
         /// <param name="mediatior">The mediatior.</param>
-        public TaskController(IMediator mediatior)
+        public TaskController(IMediator mediator)
         {
-            this.mediatior = mediatior;
+            this.mediator = mediator;
         }
 
         /// <summary>Creates the task.</summary>
@@ -28,7 +28,7 @@ namespace Task.Api.Controllers.V1
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> CreateTask([FromBody] CreateTaskCommand command)
         {
-            var taskID = await this.mediatior.Send(command);
+            var taskID = await this.mediator.Send(command);
 
             return Ok(taskID);
         }
