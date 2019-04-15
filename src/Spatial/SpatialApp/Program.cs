@@ -10,7 +10,7 @@
         static async Task Main(string[] args)
         {
             //Change the sample to execute below with the generic type
-            await SampleFactory.Execute<DistanceBetweenTwoPoints>();
+            await SampleFactory.Execute<GetPointFromCircle>();
 
             Console.WriteLine("End!");
             Console.ReadLine();
